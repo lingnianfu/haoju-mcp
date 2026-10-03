@@ -1,0 +1,58 @@
+{
+  "name": "haoju-mcp",
+  "version": "0.1.0",
+  "description": "每日好词好句 MCP Server —— 本地内置词库，离线可用的每日佳句 / 随机佳句 / 检索 / 按日期查询",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "chinese",
+    "poetry",
+    "quote",
+    "daily",
+    "诗词",
+    "好词好句"
+  ],
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./data": {
+      "types": "./dist/data/index.d.ts",
+      "import": "./dist/data/index.js"
+    }
+  },
+  "bin": {
+    "haoju-mcp": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "prepublishOnly": "npm run build",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "npm run build && node --test \"test/*.test.mjs\"",
+    "test:only": "node --test \"test/*.test.mjs\"",
+    "start": "node dist/cli.js",
+    "gen": "node tools/gen-quotes.mjs",
+    "fetch": "node tools/fetch-sources.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.0",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "typescript": "^5.9.3"
+  }
+}
