@@ -6,6 +6,7 @@ Thumbs.db
 .idea/
 .vscode/
 coverage/
+dist/
 
 # 生成词库用的原始语料缓存（数据源较大，不进仓库）
 data-source/raw/
@@ -13,3 +14,4 @@ data-source/Unihan.zip
 data-source/*.txt
 data-source/index.tsv
 data-source/shapes.txt
+data-source/push-batches/
